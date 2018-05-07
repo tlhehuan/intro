@@ -4,10 +4,9 @@
 """
 
 k = 8
-class Counter(object):
-        
-        def __init__(self, lst):
-                self.A = lst[:]                 #use an array A[0.. k-1] of bits
+class Counter(object):          #一个k位二进制计数器，k=8，表达区间[0,255]
+        def __init__(self):
+                self.A = [0]*k                  #use an array A[0.. k-1] of bits
                 self.length = len(self.A)       #self.length = k
 
         def getvalue(self):
@@ -40,7 +39,7 @@ class Counter(object):
                         self.A[i] = 1
 
 if __name__ == "__main__":
-        c = Counter([0]*k)  #一个k位二进制计数器，k=8，表达区间[0,255]
-        for _ in xrange(2**k):
+        c = Counter()
+        for _ in xrange(2**c.length):
                 c.increment()
                 print c.A, c.getvalue()
