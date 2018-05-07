@@ -15,15 +15,16 @@ class Counter(object):
 
         def increment(self):
                 """
-                “In general, A[i] flips n/2**i times 
-                in a sequence of n INCREMENT operations 
-                on an initially zero counter.”
-                简言之，计数器每自增2**i次，A[i]就要反转1次。
+                规律：计数器每自增2**i次，A[i]就要反转1次。
                 每自增1次A[0]就要反转
                 每自增2次A[1]就要反转
                 每自增4次A[2]就要反转
                 每自增8次A[3]就要反转
-
+                
+                “In general, A[i] flips n/2**i times 
+                in a sequence of n INCREMENT operations 
+                on an initially zero counter.”
+                
                 求和 --> 极限 --> 自增n次，发生反转的总次数<2n
 
                 因此，对一个初值为0的计数器，执行一个n个自增操作的序列的最坏情况时间为O(n)。
