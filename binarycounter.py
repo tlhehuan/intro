@@ -15,7 +15,7 @@ class Counter(object):
 
         def increment(self):
                 """
-                “In general, A[i]􏰀 flips n/2**i times 
+                “In general, A[i] flips n/2**i times 
                 in a sequence of n INCREMENT operations 
                 on an initially zero counter.”
                 简言之，计数器每自增2**i次，A[i]就要反转1次。
