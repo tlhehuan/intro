@@ -99,7 +99,7 @@ if __name__ == "__main__":
         
         print "动态规划"
         print natrual_recursive(s, f, 0, 12)
-        print bottom_up(s,f,0,12)
+        print bottom_up(s, f, 0, 12)
         
         print "贪心算法"
         print recursive_activity_selector(s, f, 0, 12)
