@@ -7,7 +7,7 @@ k = 8
 class Counter(object):
         
         def __init__(self, lst):
-                self.A = lst[:]                 #use an array A[0.. k-1]􏰀 of bits
+                self.A = lst[:]                 #use an array A[0.. k-1] of bits
                 self.length = len(self.A)       #self.length = k
 
         def getvalue(self):
