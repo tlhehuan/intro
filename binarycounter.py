@@ -11,7 +11,7 @@ class Counter(object):
                 self.length = len(self.A)       #self.length = k
 
         def getvalue(self):
-                return sum(2**idx for idx, val in enumerate(self.A) if val != 0)
+                return sum(self.A[i]*(2**i) for i in xrange(self.length))
 
         def increment(self):
                 """
