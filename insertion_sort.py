@@ -1,15 +1,7 @@
 import random
 
-def test(n, m):
-	for _ in xrange(n):
-		lst = range(m)
-		random.shuffle(lst)
-		r = insertion_sort(lst)
-		print lst ,r
-
 def insertion_sort(lst):
-	lst = lst[:]
-	for j in xrange(1, len(lst)):
+	for j in xrange(1, len(lst)):	#循环n-1次
 		key = lst[j]
 		i = j - 1
 		while i >= 0 and lst[i] > key:
@@ -19,6 +11,9 @@ def insertion_sort(lst):
 	return lst
 
 if  __name__ == "__main__":
-	test(10, 0)
-	test(10, 1)
-	test(10, 10)
+	lst = range(20)
+	random.shuffle(lst)
+
+	print lst
+	insertion_sort(lst)
+	print lst
