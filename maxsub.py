@@ -1,5 +1,7 @@
+from misc import *
+
 def find_max_crossing_subarray(a, low, mid, high):
-        left_sum = -0xffffffff
+        left_sum = N_INF
         sum = 0
         for i in xrange(mid, low-1, -1):
                 sum += a[i]
@@ -7,7 +9,7 @@ def find_max_crossing_subarray(a, low, mid, high):
                         max_left = i
                         left_sum = sum
         
-        right_sum = -0xfffffff
+        right_sum = N_INF
         sum = 0
         for i in xrange(mid + 1, high + 1, 1):
                 sum += a[i]
