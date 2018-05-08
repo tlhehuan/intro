@@ -35,12 +35,25 @@ def find_max_subarray(a, low, high):
         else:
                 return cross_low, cross_high, cross_sum
 
+def find_max_subarray_linear_time(a, low, high):
+        max_sum = N_INF
+        p = a[low]
+        
+        for j in xrange(low+1, high+1):
+                p = max(a[j], p + a[j])
+                if p > max_sum:
+                        max_sum = p
+        return max_sum
+
 if __name__ == "__main__":
         lst = [1,2,3,-10,-4,100,200,1,2,3,-1,-2,-40,300,-1,-2,-20]
         low, high, sum = find_max_subarray(lst, 0, len(lst)-1)
-        print lst[low:high+1], sum
+        print "maximum subarray:\t", lst[low:high+1]
+        print "recursive result:\t", sum
+        print "linear time result:\t", find_max_subarray_linear_time(lst, 0, len(lst)-1)
 
         lst = [13,-3,-25,20,-3,-16,-23,18,20,-7,12,-5,-22,15,-4,7]      #样例（股票价格变化的最大子数组问题）
         low, high, sum = find_max_subarray(lst, 0, len(lst)-1)
-        print lst[low:high+1], sum
-
+        print "maximum subarray:\t", lst[low:high+1]
+        print "recursive result:\t", sum
+        print "linear time result:\t", find_max_subarray_linear_time(lst, 0, len(lst)-1)
