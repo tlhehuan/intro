@@ -38,14 +38,19 @@ def find_max_subarray(a, low, high):
 
 def find_max_subarray_linear_time_simple(a):
         """
-        来自wikipedia
+        @wikipedia.org
+        Kadane's algorithm begins with a simple inductive question: 
+        if we know the maximum subarray sum ending at position i (call this B[i]), what is
+        the maximum subarray sum ending at position i+1 (equivalently, what is B[i+1])?
+        ……
+
         Because of the way this algorithm uses optimal substructures (the maximum subarray
         ending at each position is calculated in a simple way from a related but smaller
         and overlapping subproblem: the maximum subarray ending at the previous position) 
         this algorithm can be viewed as a simple/trivial example of dynamic programming.
         """
         
-        b = [None]*len(a)       #the maximum subarray sum ending at position i for all positions
+        b = [None]*len(a)
         b[0] = a[0]
         for i in xrange(1, len(a)):
                 b[i] = max(b[i-1]+a[i], a[i])
