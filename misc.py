@@ -11,3 +11,6 @@ def func_call(fn, *args, **kwargs):
 def PrintFuncCall():
         for k, v in g_FuncCall.items():
                 print "FuncCall", k.func_name, v
+
+P_INF = float("inf")    #正无穷大
+N_INF = float("-inf")   #负无穷大

@@ -4,8 +4,8 @@ from misc import *
 def merge(lst, p, q, r):
 	L = lst[p:q+1]
 	R = lst[q+1:r+1]
-	L.append(0xffffffff)
-	R.append(0xffffffff)
+	L.append(P_INF)
+	R.append(P_INF)
 	
 	i=j=0
 	for k in xrange(p, r+1):
@@ -33,7 +33,7 @@ def main():
 	r = lst[:]
 	merge_sort(r, 0, len(r)-1)
 	print lst,r
-	
+
 	PrintFuncCall()
 
 if __name__ == "__main__":
