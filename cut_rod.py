@@ -1,5 +1,5 @@
 
-_INF = float("-inf")    #负无穷
+from misc import *
 
 #自顶向下递归实现
 def cut_rod(p, n):
@@ -9,23 +9,23 @@ def cut_rod(p, n):
         #将钢条从左边切割下长度为i的一段不再切割，只对右边剩下的长度为n-i的一段继续切割（递归求解）
         #依据公式15.2（特别注意跟15.1的公式对比）
         #注意回顾图15-3 递归调用树
-        q = _INF
+        q = N_INF
         for i in xrange(1, n+1):
                 q = max(q, p[i] + cut_rod(p, n-i))
         return q
 
 #带备忘的自顶向下递归实现
 def memoized_cut_rod(p, n):
-        r = [_INF]*(n+1)
+        r = [N_INF]*(n+1)
         return memoized_cut_rod_aux(p, n, r)
 
 def memoized_cut_rod_aux(p, n, r):
-        if r[n] != _INF:
+        if r[n] != N_INF:
                 return r[n]
         if n == 0:
                 q = 0
         else:
-                q = _INF
+                q = N_INF
                 for i in xrange(1, n+1):
                         q = max(q, p[i] + memoized_cut_rod_aux(p, n-i, r))
         r[n] = q
@@ -33,10 +33,10 @@ def memoized_cut_rod_aux(p, n, r):
 
 #自底向上法
 def bottom_up_cut_rod(p, n):
-        r = [_INF]*(n+1)        #依次求解规模为j=0,1,……,n的子问题
+        r = [N_INF]*(n+1)        #依次求解规模为j=0,1,……,n的子问题
         r[0] = 0
         for j in xrange(1, n+1):
-                q = _INF
+                q = N_INF
                 for i in xrange(1, j+1):
                         q = max(q, p[i] + r[j-i])
                 r[j] = q
